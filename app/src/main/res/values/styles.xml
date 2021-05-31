@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="bsdTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bss</item>
+    </style>
+
+    <style name="bss" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+</resources>
