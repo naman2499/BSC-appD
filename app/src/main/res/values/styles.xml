@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
     </style>
 
     <style name="bsdTheme" parent="Theme.Design.Light.BottomSheetDialog">
@@ -14,4 +11,11 @@
         <item name="android:background">@android:color/white</item>
     </style>
 
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:minHeight">18dp</item>
+        <item name="maxWidth">18dp</item>
+        <item name="android:maxHeight">18dp</item>
+
+    </style>
 </resources>

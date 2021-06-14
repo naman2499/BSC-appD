@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:background="#3f3f3f"
+    android:padding="5dp"
+    android:layout_gravity="center"
+    tools:context=".Feedback"
+    android:orientation="vertical"
+  >
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Your input is valuable to us!"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp" />
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rbf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:progressBackgroundTint="@color/light_gray"
+        android:progressBackgroundTintMode="src_atop"
+        android:progressTint="@android:color/holo_orange_light"
+        android:rating="3"
+        android:stepSize="1"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:hintTextColor="@color/white"
+        >
+         <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:textColor="@color/white"
+            android:hint="Write your feedback!"
+             android:textColorHint="@color/white"
+             android:outlineAmbientShadowColor="@color/white"
+            android:typeface="sans"
+            android:gravity="top"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="SUBMIT" />
+
+</LinearLayout>

@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.appl">
+    package="com.bsc.eRoots21testApp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+<!--    <uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/bsc_pride_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/bsc_pride_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppL">
-        <activity android:name=".MainActivity3"></activity>
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppL"
+        android:versionCode = "11"
+        android:versionName = "11.0"
+        >
+
+
+        <activity android:name="com.bsc.eRoots21testApp.Feedback"></activity>
+        <activity android:name="com.bsc.eRoots21testApp.Dashboard" />
+        <activity android:name="com.bsc.eRoots21testApp.FabAnim" />
+        <activity android:name="com.bsc.eRoots21testApp.BottomNav" />
+        <activity android:name="com.bsc.eRoots21testApp.AnimTest$AboutUs" />
+        <activity android:name="com.bsc.eRoots21testApp.AnimTest" />
+        <activity android:name="com.bsc.eRoots21testApp.LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.appl;
+package com.bsc.eRoots21testApp;
 
 import org.junit.Test;
 

@@ -1,14 +1,14 @@
-package com.example.appl;
+package com.bsc.eRoots21testApp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class BottomSheetLayout extends AppCompatActivity {
+public class ForgotPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bottomsheetlayout);
+        setContentView(R.layout.activity_forgot_password);
     }
 }

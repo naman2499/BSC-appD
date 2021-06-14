@@ -7,15 +7,19 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.appl"
+        applicationId "com.bsc.appl"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
+        versionCode 11
+        versionName "11.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+//    lintOptions {
+//        checkReleaseBuilds false
+//        // Or, if you prefer, you can continue to check for errors in release builds,
+//        // but continue the build even when errors are found:
+//        abortOnError false
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -30,12 +34,31 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.amplitude:android-sdk:2.31.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+
+//    implementation "androidx.security:security-crypto:1.0.0"
+
+    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+
+
+    // For Identity Credential APIs
+    implementation "androidx.security:security-identity-credential:1.0.0-alpha02"
+
+    // For App Authentication APIs
+    implementation "androidx.security:security-app-authenticator:1.0.0-alpha02"
+
+    // For App Authentication API testing
+    androidTestImplementation "androidx.security:security-app-authenticator:1.0.0-alpha02"
+
+    implementation 'com.google.android.play:core:1.10.0'
 }
