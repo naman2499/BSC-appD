@@ -61,6 +61,12 @@ public class Dashboard extends AppCompatActivity {
             Intent intent = new Intent(Dashboard.this, AnimTest.class);
             startActivity(intent);
         });
+        cv2.setOnClickListener(v -> {
+            Intent intent = new Intent(Dashboard.this, BottomSheetFab.class);
+            startActivity(intent);
+        });
+
+
         cv4.setOnClickListener(v -> {
             Intent intent = new Intent(Dashboard.this, FabAnim.class);
             startActivity(intent);
@@ -89,13 +95,12 @@ public class Dashboard extends AppCompatActivity {
     }
 
     private void checkUpdate() {
-
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
 
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                     && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
-                startUpdateFlow(appUpdateInfo);
+                startUpdateFlow(appUpdateInfo);             //STARTS THE UPDATE PROCESS - SHOWS THE DIALOG
             } else if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
                 popupSnackBarForCompleteUpdate();
             }

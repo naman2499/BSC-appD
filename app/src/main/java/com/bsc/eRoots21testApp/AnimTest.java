@@ -96,7 +96,7 @@ public class AnimTest extends AppCompatActivity {
                         scaleDown.play(scaleDownX).with(scaleDownY);
 
                         scaleDown.start();
-                        System.out.println(rb2.getRating());
+
 
                         break;
 
@@ -113,6 +113,7 @@ public class AnimTest extends AppCompatActivity {
                         scaleDown2.start();
                         break;
                 }
+                System.out.println(rb2.getRating());
                 return rb2.onTouchEvent(event);
             }
         });
