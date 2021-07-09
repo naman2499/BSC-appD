@@ -30,12 +30,12 @@ import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
 
 import static com.bsc.eRoots21testApp.SharedPref.SP.*;
+
 public class Dashboard extends AppCompatActivity {
-    CardView cv1,cv2,cv3,cv4,cv5,cv6;
+    CardView cv1, cv2, cv3, cv4, cv5, cv6;
     Dialog dialog;
     RatingBar rb2;
 
@@ -65,18 +65,18 @@ public class Dashboard extends AppCompatActivity {
             Intent intent = new Intent(Dashboard.this, BottomSheetFab.class);
             startActivity(intent);
         });
-
-
+        cv3.setOnClickListener(v -> {
+            Intent intent = new Intent(Dashboard.this, CookieJar.class);
+            startActivity(intent);
+        });
         cv4.setOnClickListener(v -> {
             Intent intent = new Intent(Dashboard.this, FabAnim.class);
             startActivity(intent);
         });
-        cv5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Dashboard.this, AnimTest.AboutUs.class);
-                startActivity(intent);
-            }
+        cv5.setOnClickListener(v -> {
+            Intent intent = new Intent(Dashboard.this, AnimTest.AboutUs.class);
+            startActivity(intent);
+
         });
 
 
@@ -91,6 +91,7 @@ public class Dashboard extends AppCompatActivity {
             }
         };
         appUpdateManager.registerListener(installStateUpdatedListener);
+
         checkUpdate();
     }
 
@@ -122,7 +123,7 @@ public class Dashboard extends AppCompatActivity {
             if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(getApplicationContext(), "Update canceled by user! Result Code: " + resultCode, Toast.LENGTH_LONG).show();
             } else if (resultCode == RESULT_OK) {
-                Toast.makeText(getApplicationContext(),"Update success! Result Code: " + resultCode, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Update success! Result Code: " + resultCode, Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(getApplicationContext(), "Update Failed! Result Code: " + resultCode, Toast.LENGTH_LONG).show();
                 checkUpdate();
@@ -153,35 +154,24 @@ public class Dashboard extends AppCompatActivity {
         removeInstallStateUpdateListener();
     }
 
-    public void feedClk(View view){
+    public void feedClk(View view) {
         TextView close;
         Button submit;
         dialog.setContentView(R.layout.activity_feedback);
         close = dialog.findViewById(R.id.close);
         submit = dialog.findViewById(R.id.submit);
-        rb2 =  dialog.findViewById(R.id.rbf);
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        rb2 = dialog.findViewById(R.id.rbf);
+        close.setOnClickListener(v -> {
+                    dialog.dismiss();
+                }
+        );
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-                Snackbar.make(view, "Thank you for the Feedback!", Snackbar.LENGTH_LONG).show();
-            }
+        submit.setOnClickListener(v -> {
+            dialog.dismiss();
+            Snackbar.make(view, "Thank you for the Feedback!", Snackbar.LENGTH_LONG).show();
         });
         dialog.show();
-        rb2.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-
-                float rating = rb2.getRating();
-                System.out.println("DDDD");
+        rb2.setOnTouchListener((View v, MotionEvent event) -> {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         ObjectAnimator scaleDownX = ObjectAnimator.ofFloat(rb2,
@@ -195,7 +185,6 @@ public class Dashboard extends AppCompatActivity {
                         scaleDown.play(scaleDownX).with(scaleDownY);
 
                         scaleDown.start();
-                        System.out.println(rb2.getRating());
 
                         break;
 
@@ -211,9 +200,11 @@ public class Dashboard extends AppCompatActivity {
                         scaleDown2.play(scaleDownX2).with(scaleDownY2);
                         scaleDown2.start();
                         break;
+
+                    default:
                 }
                 return rb2.onTouchEvent(event);
-            }
+
         });
     }
 
@@ -227,19 +218,17 @@ public class Dashboard extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.logout) {
-            if(sharedpreferences.getString(CheckRem, "").equals("true")){
+            if (sharedpreferences.getString(CheckRem, "").equals("true")) {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString(CheckRem, "logout").apply();
-//                logout = "true";
-                System.out.println(sharedpreferences.getString(CheckRem, "1234") + "**************###################################################################");
-            }
-            else{
-//                logout = "false";
+            } else {
+
                 sharedpreferences.edit().clear().apply();
 
             }
             Intent intent = new Intent(Dashboard.this, LoginPage.class);
-            startActivity(intent);finish();
+            startActivity(intent);
+            finish();
         }
         return true;
     }

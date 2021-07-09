@@ -2,11 +2,11 @@ package com.bsc.eRoots21testApp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
+
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
@@ -50,6 +50,7 @@ public class BottomSheetFab extends AppCompatActivity {
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                //intentional blank override
             }
 
             @Override
@@ -71,6 +72,7 @@ public class BottomSheetFab extends AppCompatActivity {
 
     void customAnimate(float slideOffset) {
         if (slideOffset > 1 || slideOffset < 0) {
+            //do nothing
         } else {
             //replace fab.getHeight() by the amount of distance the FAB should be above the bottom of layout at it's minimum position.
             fab.animate().translationYBy((slideOffset - prevOffset) * (bottomSheetBehavior.getPeekHeight() - fab.getHeight())).setDuration(0).start();

@@ -3,6 +3,13 @@
     package="com.bsc.eRoots21testApp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -11,7 +18,9 @@
         android:roundIcon="@drawable/bsc_pride_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppL">
-        <activity android:name=".BottomSheetFab"></activity>
+        <activity android:name=".CookieJar"></activity>
+        <activity android:name=".CookieTest" />
+        <activity android:name=".BottomSheetFab" />
         <activity android:name=".Feedback" />
         <activity android:name=".Dashboard" />
         <activity android:name=".FabAnim" />

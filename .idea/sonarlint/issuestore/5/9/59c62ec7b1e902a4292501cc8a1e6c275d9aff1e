@@ -1,0 +1,37 @@
+
+f
+java:S1301N"KReplace this "switch" statement by "if" statements to increase readability.(ãÁğ™øÿÿÿÿ
+>
+java:S16046"(Make this anonymous inner class a lambda(€ßÂó
+C
+java:S1604H"(Make this anonymous inner class a lambda(Ãà÷ûÿÿÿÿ
+D
+java:S1604"(Make this anonymous inner class a lambda(´Ğêßúÿÿÿÿ
+X
+java:S1226š"AIntroduce a new variable instead of reusing the parameter "claa".(ÉÒÌİ
+E
+java:S1128"/Remove this unused import 'android.os.Handler'.(ûÛ’¡
+U
+java:S18541":Remove this useless assignment to local variable "client".(¢ãï¡ıÿÿÿÿ
+U
+java:S1854M":Remove this useless assignment to local variable "rating".(À’™Šúÿÿÿÿ
+<	java:S131N""Add a default case to this switch.(ãÁğ™øÿÿÿÿ
+N	java:S106n"9Replace this use of System.out or System.err by a logger.(ü«š´
+Q	java:S125y"<This block of commented-out lines of code should be removed.(ìããå
+F
+java:S1172}"+Remove this unused method parameter "view".(è¢Şùıÿÿÿÿ
+Q	java:S125{"<This block of commented-out lines of code should be removed.(…÷«ó
+T	java:S106„"9Replace this use of System.out or System.err by a logger.(îÙéëÿÿÿÿÿ
+W	java:S125”"<This block of commented-out lines of code should be removed.(™ÕÃ¼şÿÿÿÿ
+~
+java:S3252›"gUse static access with "com.google.android.material.snackbar.BaseTransientBottomBar" for "LENGTH_LONG".(šÍÎ
+G
+java:S1172 "+Remove this unused method parameter "menu".(Ç‹òÿÿÿÿÿ
+G
+java:S1172®"+Remove this unused method parameter "view".(‚Ù“±úÿÿÿÿ
+F
+java:S1481M"+Remove this unused "rating" local variable.(À’™Šúÿÿÿÿ
+F
+java:S14811"+Remove this unused "client" local variable.(¢ãï¡ıÿÿÿÿ
+I
+java:S1068"-Remove this unused "mRunnable" private field.(´Ğêßúÿÿÿÿ

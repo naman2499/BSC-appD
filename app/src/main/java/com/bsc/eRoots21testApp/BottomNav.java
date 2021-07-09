@@ -3,7 +3,6 @@ package com.bsc.eRoots21testApp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -24,9 +23,7 @@ public class BottomNav extends AppCompatActivity {
 
 
     public BottomNavigationView.OnNavigationItemSelectedListener navListner  =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected( MenuItem item) {
+             item -> {
                     switch (item.getItemId()){
                         case R.id.option1:
                             mbsv.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
@@ -41,7 +38,6 @@ public class BottomNav extends AppCompatActivity {
                         default:
                             break;
                     }return true;
-                }
             };
 
 

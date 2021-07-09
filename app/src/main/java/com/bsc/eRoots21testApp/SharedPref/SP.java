@@ -15,26 +15,28 @@ public class SP {
 
     private static SP single_instance = null;
 
-    private SP(Context context){
+    private SP(Context context) {
         try {
-        MasterKey mainKey = new MasterKey.Builder(context)
-                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-                .build();
-        sharedpreferences = EncryptedSharedPreferences.create(
-                context,
-                LoginData,
-                mainKey,
-                EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        );
-    }
-        catch (Exception e){}
+            MasterKey mainKey = new MasterKey.Builder(context)
+                    .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                    .build();
+            sharedpreferences = EncryptedSharedPreferences.create(
+                    context,
+                    LoginData,
+                    mainKey,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            );
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
-    public static SP getInstance(Context context){
-        if(single_instance == null)
-        single_instance = new SP(context);
+    public static SP getInstance(Context context) {
+        if (single_instance == null)
+            single_instance = new SP(context);
         return single_instance;
-        }
     }
+}
 

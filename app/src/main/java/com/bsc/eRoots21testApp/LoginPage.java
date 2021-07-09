@@ -26,11 +26,6 @@ public class LoginPage extends AppCompatActivity {
     EditText pass;
     CheckBox rememberMe;
 
-//    public static final String LoginData = "loginData";
-//    public static final String EmailSaved = "email";
-//    public static final String PassSaved = "pwd";
-//    public static final String CheckRem = "chk";
-//    static SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +40,6 @@ public class LoginPage extends AppCompatActivity {
         Context context = getApplicationContext();
         getInstance(context);
 
-//try {
-//    MasterKey mainKey = new MasterKey.Builder(context)
-//            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-//            .build();
-//    sharedpreferences = EncryptedSharedPreferences.create(
-//            context,
-//            LoginData,
-//            mainKey,
-//            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-//            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-//    );
-//}catch (Exception e){}
 
         String cbCheck = sharedpreferences.getString(CheckRem, "");
         if(cbCheck.equals("true")){

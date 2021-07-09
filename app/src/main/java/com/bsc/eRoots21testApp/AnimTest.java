@@ -25,13 +25,13 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 public class AnimTest extends AppCompatActivity {
-    private Handler mHandler = new Handler();
+
     RatingBar stars;
     float rStart= 0;
     RatingBar rb2;
     FloatingActionButton ffa;
 
-//    Animation animScale;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class AnimTest extends AppCompatActivity {
 
         float current = stars.getRating();
         rStart = current;
-        System.out.println(current);
+
         setRatingAnimation(current);
 
         AmplitudeClient client = Amplitude.getInstance()
@@ -67,15 +67,7 @@ public class AnimTest extends AppCompatActivity {
         rb2.setEnabled(true);
         rb2.setClickable(true);
 
-//        rb2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-//            @Override
-//            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-//                if(fromUser){
-//                    String message = "Rating is recorded as:" + rating;
-//                    Toast.makeText(MainActivity2.this, message,Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+
 
         rb2.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -112,14 +104,13 @@ public class AnimTest extends AppCompatActivity {
                         scaleDown2.play(scaleDownX2).with(scaleDownY2);
                         scaleDown2.start();
                         break;
+
+
                 }
                 System.out.println(rb2.getRating());
                 return rb2.onTouchEvent(event);
             }
         });
-
-
-
     }
 
 

@@ -1,0 +1,10 @@
+
+^
+java:S11920"HDefine a constant instead of duplicating this literal "test123" 4 times.(âÒ¦ú
+E
+java:S10667"/Merge this if statement with the enclosing one.(±öœÃ
+P	java:S125?"<This block of commented-out lines of code should be removed.(©Ğ’I
+}
+java:S3252a"gUse static access with "com.google.android.material.snackbar.BaseTransientBottomBar" for "LENGTH_LONG".(¥¼ñ
+F
+java:S1172e"+Remove this unused method parameter "view".(®¤‚“ÿÿÿÿÿ
