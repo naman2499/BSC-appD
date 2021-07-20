@@ -17,8 +17,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/bsc_pride_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppL">
-        <activity android:name=".CookieJar"></activity>
+        android:theme="@style/Theme.AppL"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ModelDetails"></activity>
+        <activity android:name=".InstructionsCookie" />
+        <activity android:name=".FinalResults" />
+        <activity android:name=".CookieJar" />
         <activity android:name=".CookieTest" />
         <activity android:name=".BottomSheetFab" />
         <activity android:name=".Feedback" />

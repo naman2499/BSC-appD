@@ -1,6 +1,4 @@
 
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 l
 <app/src/main/java/com/bsc/eRoots21testApp/SharedPref/SP.java,c\a\ca40cf7ad39799507429bdd477d12f3d1d359628
 h
@@ -8,12 +6,26 @@ h
 m
 =app/src/main/java/com/bsc/eRoots21testApp/BottomSheetFab.java,b\f\bff57d070fd6b43a8f4d678ce5ff6dad17a10d32
 g
-7app/src/main/java/com/bsc/eRoots21testApp/Feedback.java,9\1\91932178ac044be88dd3cb23fd49b05f5aaf6d4b
-f
-6app/src/main/java/com/bsc/eRoots21testApp/FabAnim.java,3\0\304439f61f21d1b54498d8e6c335bb70bfdff755
-g
 7app/src/main/java/com/bsc/eRoots21testApp/AnimTest.java,5\9\59c62ec7b1e902a4292501cc8a1e6c275d9aff1e
 h
 8app/src/main/java/com/bsc/eRoots21testApp/LoginPage.java,6\5\65ea4adf850e2eb26b3cbaf964555eabeba19eb6
 m
 =app/src/main/java/com/bsc/eRoots21testApp/ForgotPassword.java,0\c\0c3fb45b5b687901c3564914241d0c86741f2389
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+f
+6app/src/main/java/com/bsc/eRoots21testApp/FabAnim.java,3\0\304439f61f21d1b54498d8e6c335bb70bfdff755
+h
+8app/src/main/java/com/bsc/eRoots21testApp/ModelData.java,2\0\20a8ca3e27be96367c3650113c2b7e00e5bfe188
+g
+7app/src/main/java/com/bsc/eRoots21testApp/Feedback.java,9\1\91932178ac044be88dd3cb23fd49b05f5aaf6d4b
+h
+8app/src/main/java/com/bsc/eRoots21testApp/Dashboard.java,5\2\523b88fe58c323d7b9eb5248f79e5a0254d432e3
+q
+Aapp/src/main/java/com/bsc/eRoots21testApp/InstructionsCookie.java,6\0\60cb0ef2f4f20ab626d7d0ccc0c797c381de61d1

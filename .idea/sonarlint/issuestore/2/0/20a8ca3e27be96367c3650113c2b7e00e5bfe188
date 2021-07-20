@@ -1,0 +1,14 @@
+
+q	java:S116"VRename this field "LR_category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÿê.8‡¬ïĞ©/
+r	java:S116
+"VRename this field "LR_accuracy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÏÀ’8İäïĞ©/
+p	java:S116"TRename this field "LR_prob_0" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á»Éõ8™¦ğĞ©/
+o	java:S116"TRename this field "LR_prob_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”×Ÿ	8™¦ğĞ©/
+r	java:S116"VRename this field "DT_category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾úÀ8ÂÖòĞ©/
+r	java:S116"VRename this field "DT_accuracy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çŞÑ…8ÂÖòĞ©/
+u	java:S116"TRename this field "DT_prob_0" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô£÷¥ÿÿÿÿÿ8ÂÖòĞ©/
+u	java:S116"TRename this field "DT_prob_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­àÄ»şÿÿÿÿ8ÂÖòĞ©/
+w	java:S116"VRename this field "RF_category" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»£ˆ‘úÿÿÿÿ8ÃÖòĞ©/
+w	java:S116"VRename this field "RF_accuracy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“£ßúÿÿÿÿ8ÃÖòĞ©/
+p	java:S116"TRename this field "RF_prob_0" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢é¥ÿ8ÃÖòĞ©/
+o	java:S116 "TRename this field "RF_prob_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉÏ½8ÄÖòĞ©/

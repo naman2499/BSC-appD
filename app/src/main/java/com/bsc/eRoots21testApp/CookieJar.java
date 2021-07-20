@@ -1,10 +1,17 @@
 package com.bsc.eRoots21testApp;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.AudioManager;
+import android.os.StrictMode;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -14,6 +21,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ProgressBar;
@@ -21,8 +29,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class CookieJar extends Activity implements RecognitionListener {
+import androidx.appcompat.app.AppCompatDelegate;
 
+import com.google.android.gms.common.util.IOUtils;
+
+public class CookieJar extends Activity implements RecognitionListener {
     private TextView returnedText;
     private ToggleButton toggleButton;
     private ProgressBar progressBar;
@@ -33,9 +44,15 @@ public class CookieJar extends Activity implements RecognitionListener {
     boolean spechStarted = false;
     private AudioManager mAudioManager;
     private int mStreamVolume = 0;
+//    private static final String LOCAL_URL = "http://45.77.223.13:8080/";
+        private static final String LOCAL_URL = "http://eae2ffc2c563.ngrok.io/";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cookie_jar);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -44,12 +61,7 @@ public class CookieJar extends Activity implements RecognitionListener {
         progressBar =  findViewById(R.id.progressBar1);
         toggleButton =  findViewById(R.id.toggleButton1);
 
-
         progressBar.setVisibility(View.INVISIBLE);
-
-
-        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        mStreamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_SYSTEM); // getting system volume into var for later un-muting
 
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         speech.setRecognitionListener(this);
@@ -64,6 +76,13 @@ public class CookieJar extends Activity implements RecognitionListener {
 //        recognizerIntent.putExtra(RecognizerIntent.ACTION_WEB_SEARCH, true);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 //        recognizerIntent.putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, true);
+        toggleButton.setText("START");
+
+        toggleButton.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+
+        toggleButton.setTextOff("START");
+        toggleButton.setTextOn("STOP");
+        returnedText.setText("Press the START button below to start voice recording.");
 
         toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -72,24 +91,79 @@ public class CookieJar extends Activity implements RecognitionListener {
                 if (isChecked) {
                     speechString = "";
                     returnedText.setText(speechString);
-//                    mAudioManager.setStreamVolume(AudioManager.STREAM_SYSTEM, 0, 0); // setting system volume to zero, muting
                     speech.setRecognitionListener(CookieJar.this);
+
+                    toggleButton.setBackgroundColor(getResources().getColor(android.R.color.holo_red_light));
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setIndeterminate(true);
                     speech.startListening(recognizerIntent);
                 } else {
-                    Toast.makeText(CookieJar.this, speechString, Toast.LENGTH_SHORT).show();
+
+                    if(speechString.isEmpty())
+                        Toast.makeText(CookieJar.this, "No speech detected. Please try again.", Toast.LENGTH_LONG).show();
+                    else
+                    Toast.makeText(CookieJar.this, "LOADING...PLEASE WAIT A FEW SECONDS", Toast.LENGTH_LONG).show();
+
+
                     System.out.println(speechString);
                     progressBar.setIndeterminate(false);
                     progressBar.setVisibility(View.INVISIBLE);
+                    sendData();
+                    toggleButton.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+
                     speech.stopListening();
                     speech.destroy();
-//                    mAudioManager.setStreamVolume(AudioManager.STREAM_SYSTEM, mStreamVolume, 0); // again setting the system volume back to the original, un-mutting
                 }
             }
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        returnedText.setText("\n\n\nPress the START button below to start voice recording.");
+    }
+
+    public void sendData() {
+        runOnUiThread(new Runnable() {
+            public void run() {
+//                String temp  = "{\"LogisticRegression\":{\"category\":1,\"accuracy\":0.7297297297297297,\"probabilty_0\":0.02547577271353152,\"probabilty_1\":0.9745242272864685},\"DecisionTreeClassifier\":{\"category\":1,\"accuracy\":0.6486486486486487,\"probabilty_0\":0.0,\"probabilty_1\":1.0},\"RandomForestClassifier\":{\"category\":1,\"accuracy\":0.6936936936936937,\"probabilty_0\":0.0,\"probabilty_1\":1.0},\"features\":[0.9411764705882353,450.71897776278877,0,-0.09928571428571331,2.2314285714285695,0,0.0,1,1,7.0]}";
+                String newSpeechString = speechString.replaceAll(" ", "%20");
+
+                try {
+//
+                    URL url = new URL(LOCAL_URL + "?text=" + newSpeechString);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+
+                    System.out.println("RESPONSE IS:" + con.getResponseMessage());
+
+                    InputStream in = con.getInputStream();
+                    StringBuilder sb = new StringBuilder();
+                    for (int ch; (ch = in.read()) != -1; ) {
+                        sb.append((char) ch);
+                    }
+                    System.out.println(sb.toString());
+//                    Toast.makeText(CookieJar.this, sb.toString(), Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getBaseContext(), FinalResults.class);
+                    intent.putExtra("jsonData", sb.toString());
+
+//                    intent.putExtra("jsonData", temp);
+
+
+                    startActivity(intent);
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 
     @Override
     protected void onPause() {
@@ -162,8 +236,6 @@ public class CookieJar extends Activity implements RecognitionListener {
         Log.i(LOG_TAG, "onRmsChanged: " + rmsdB);
         progressBar.setProgress((int) rmsdB);
     }
-
-
 
 
     public static String getErrorText(int errorCode) {

@@ -39,6 +39,10 @@ public class FabAnim extends AppCompatActivity {
     }
 
     public void dimClk(View view) {
+
+
+
+
         if (p2.getProgress() == 100){p2.setProgress(0);c.setBackgroundColor(ContextCompat.getColor(this, R.color.white));}
         else {p2.setProgress(100);
             c.setBackgroundColor(ContextCompat.getColor(this, R.color.light_gray));

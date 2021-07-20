@@ -66,7 +66,7 @@ public class Dashboard extends AppCompatActivity {
             startActivity(intent);
         });
         cv3.setOnClickListener(v -> {
-            Intent intent = new Intent(Dashboard.this, CookieJar.class);
+            Intent intent = new Intent(Dashboard.this, InstructionsCookie.class);
             startActivity(intent);
         });
         cv4.setOnClickListener(v -> {

@@ -119,7 +119,7 @@
 
                     android:fontFamily="casual"
                     android:gravity="bottom|center"
-                    android:text="ml/ai"
+                    android:text="cookie"
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
