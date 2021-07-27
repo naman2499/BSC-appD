@@ -2,7 +2,7 @@ In the CookieJar.java file, replace the value of the "LOCAL_URL" variable with t
 
 Backend is present in the repo ad_cookie. Head over there for detailed documentation and implementation steps.
 
-
+Also, make sure to give the app audio permissions from the app info tab on android (can be opened by long-pressing the application icon).
 
 
 design documentation:
